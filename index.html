@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/pokeball.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryBlue: '#3757D5',
+                        greyBlue: '#EEF3FF',
+                        fontBlue: '#1F3E72',
+                        fontGrey: '#7F8CA1',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans">
+    <main class="md:w-8/12 lg:w-6/12 text-center m-auto">
+        <h1 class="text-6xl font-bold text-center text-neutral-800 m-10">Poke<span class="text-[#ED5564]">dex</span></h1>
+        <section class="text-center mb-5">
+            <input type="text" name="searchPokemon" id="searchPokemon" placeholder="Search for a Pokemon..." autofocus>
+            <button class="bg-neutral-700 text-white px-4 py-2 rounded transition ease-in-out hover:bg-[#ED5564] hover:-translate-1 hover:scale-110 duration-200 mx-5" type="submit" onclick="fetchPokemon()">Search</button>
+        </section>
+        <section class="text-center">
+            <article class="my-5">
+                <img id="pokemonImage" class="w-[100px] h-[100px] m-auto" src="images/pokeball.png" alt="Pokemon Image">
+            </article>
+            <article>
+                <h2 id="pokemonName" class="text-3xl font-semibold my-2">Pokemon Name</h2>
+                <p>Nº <span id="pokemonId">ID</span></p>
+                <div>
+                    <p class="font-medium">Type: <span class="font-normal" id="pokemonType">Type</span></p>
+                    <p class="font-medium">Height: <span class="font-normal" id="pokemonHeight">Height</span> <span class="font-normal">m</span></p>
+                    <p class="font-medium">Weight: <span class="font-normal" id="pokemonWeight">Weight</span> <span class="font-normal">kg</span></p>
+                    <p class="font-medium">Main ability: <span id="pokemonAbility" class="font-normal">Ability</span></p>
+                </div>
+            </article>
+        </section>
+        <section class="text-center w-[400px] flex flex-col mx-auto mb-5 justify-center">
+            <h3 class="text-2xl font-semibold my-2">Stats</h3>
+            <div id="hp" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">HP</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+            <div id="attack" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">Attack</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+            <div id="defense" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">Defense</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+            <div id="specialAttack" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">Special Attack</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+            <div id="specialDefense" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">Special Defense</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+            <div id="speed" class="progress-bar grid grid-cols-3 gap-2">
+                <p class="text-left">Speed</p>
+                <div class="progress-bar-fill bg-neutral-300 w-[100px] md:w-[200px] h-[10px] self-center rounded transition-[width] ease-in-out duration-500"></div>
+                <p class="progress-bar-value text-right">45</p>
+            </div>
+        </section>
+    </main>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
